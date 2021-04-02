@@ -7,5 +7,6 @@ urlpatterns = [
     path('get/<str:name>', views.get_data, name = 'get_data'),
     path('delete/<str:name>', views.delete, name = 'delete'),
     path('count', views.count, name = 'count'),
-    path('Pass', views.Pass, name = 'Pass')
+    path('Pass', views.Pass, name = 'Pass'),
+    path("contact/<int:id>/<str:email>", views.savecontact ,name='contact')
 ]

@@ -1,16 +1,21 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-from first_page.models import User
+from first_page.models import User, contact
 
 def save(request, name, age, add, marks):
-    u = User(name = name, age = age, add = add, marks = marks)
+    u = User(id = id, name = name, age = age, add = add, marks = marks)
     u.save()
     return HttpResponse("POST query")
 
+def savecontact(request, id, email):
+    mobile = User.objects.get(id=id)
+    r = contact(mobile = mobile, email = email)
+    r.save()
+    return HttpResponse("email saved")
 
 def get_all(request):
-    u = User.objects.all()
+    u = User.objects.get()
     users = [i.name for i in u]
     resp = ','.join(users)
     return HttpResponse(resp)
